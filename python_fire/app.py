@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import joblib
 
 # Load mô hình đã lưu
-R_model = joblib.load('r_model.pkl')
+R_model = joblib.load('./python_fire/r_model.pkl')
 
 # Khởi tạo Flask app
 app = Flask(__name__)
@@ -13,7 +13,7 @@ def predict():
     # Lấy dữ liệu từ request
     data = request.get_json(force=True)
     X_test = data['X_test']
-
+    print(X_test)
     # Dự đoán
     y_pred_R_model = R_model.predict(X_test)
 
