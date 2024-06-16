@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    print("kk")
     # Lấy ảnh từ request
     file = request.files['image']
     
@@ -32,7 +33,7 @@ def predict():
     
     # Dự đoán
     prediction = model.predict(img)
-    
+    print(prediction)
     # Trả về kết quả dưới dạng JSON
     return jsonify(prediction.tolist())
 
